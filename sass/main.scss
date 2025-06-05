@@ -1,0 +1,889 @@
+// Variables
+$primary-color: #3b82f6;
+$secondary-color: #8b5cf6;
+$accent-color: #ef4444;
+$warning-color: #fbbf24;
+$success-color: #059669;
+$danger-color: #dc2626;
+
+// Grays
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+
+// Slate colors
+$slate-50: #f8fafc;
+$slate-100: #f1f5f9;
+$slate-200: #e2e8f0;
+$slate-300: #cbd5e1;
+$slate-400: #94a3b8;
+$slate-500: #64748b;
+$slate-600: #475569;
+$slate-700: #334155;
+$slate-800: #1e293b;
+$slate-900: #0f172a;
+
+// Breakpoints
+$mobile: 768px;
+
+// Mixins
+@mixin gradient-text($color1, $color2) {
+  background: linear-gradient(45deg, $color1, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin card-hover {
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-hover {
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@mixin glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 50%, $accent-color 100%);
+  min-height: 100vh;
+  color: $gray-700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Navigation
+.nav-tabs {
+  display: flex;
+  @include glassmorphism;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: white;
+    color: $gray-700;
+  }
+}
+
+// Template viewer
+.template-viewer {
+  display: none;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  &.active {
+    display: block;
+  }
+}
+
+// Dashboard styles
+.dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.main-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  @include gradient-text($primary-color, $secondary-color);
+  margin-bottom: 24px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, $slate-100, $slate-200);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  @include card-hover;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $primary-color;
+  margin-bottom: 8px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: $slate-800;
+}
+
+.recent-decks {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deck-item {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid $primary-color;
+}
+
+.deck-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $slate-800;
+  margin-bottom: 8px;
+}
+
+.deck-modified {
+  color: $slate-500;
+  margin-bottom: 12px;
+}
+
+.deck-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  &.tag-blue {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &.tag-green {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  &.tag-orange {
+    background: #fed7aa;
+    color: #c2410c;
+  }
+
+  &.tag-red {
+    background: #fecaca;
+    color: $danger-color;
+  }
+
+  &.tag-purple {
+    background: #e9d5ff;
+    color: #7c3aed;
+  }
+}
+
+.sidebar {
+  background: $slate-50;
+  padding: 24px;
+  border-radius: 12px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.activity-item {
+  padding: 16px;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid $primary-color;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: $slate-800;
+  margin-bottom: 4px;
+}
+
+.activity-subtitle {
+  color: $slate-500;
+  font-size: 0.875rem;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+// Buttons
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &.btn-primary {
+    background: linear-gradient(135deg, $primary-color, #1d4ed8);
+    color: white;
+    @include button-hover;
+  }
+
+  &.btn-secondary {
+    background: $slate-100;
+    color: $slate-600;
+
+    &:hover {
+      background: $slate-200;
+    }
+  }
+
+  &.btn-full {
+    width: 100%;
+  }
+}
+
+// Deck Builder styles
+.deck-builder {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 24px;
+  height: 600px;
+}
+
+.card-search {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid $slate-200;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  font-size: 1rem;
+
+  &:focus {
+    outline: none;
+    border-color: $primary-color;
+  }
+}
+
+.search-filters {
+  margin-bottom: 16px;
+}
+
+.filter-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 2px solid $slate-200;
+  border-radius: 6px;
+  background: white;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card-item {
+  background: white;
+  border: 2px solid $slate-200;
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  @include card-hover;
+}
+
+.card-image {
+  background: linear-gradient(135deg, $warning-color, #f59e0b);
+  color: white;
+  padding: 16px;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.875rem;
+}
+
+.card-stats {
+  text-align: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+  font-weight: 500;
+}
+
+.deck-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.deck-builder-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: $slate-800;
+}
+
+.deck-zones {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.main-deck,
+.bench {
+  background: $slate-100;
+  border: 2px dashed $slate-300;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bench {
+  min-height: 120px;
+}
+
+.deck-counter {
+  font-weight: 600;
+  color: $slate-600;
+  margin-bottom: 12px;
+}
+
+.deck-placeholder {
+  color: $slate-400;
+  font-style: italic;
+
+  &--small {
+    font-size: 0.875rem;
+  }
+}
+
+.deck-stats {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.deck-composition {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.composition-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: white;
+  border-radius: 6px;
+}
+
+.subsection-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: $gray-700;
+  margin-bottom: 12px;
+}
+
+.energy-curve {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.energy-group {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.energy-label {
+  font-size: 0.75rem;
+  color: $slate-500;
+  margin-bottom: 4px;
+}
+
+.energy-count {
+  font-weight: 600;
+  color: $slate-800;
+}
+
+.types {
+  background: white;
+  padding: 12px;
+  border-radius: 6px;
+  font-style: italic;
+  color: $slate-500;
+}
+
+// Battle Arena styles
+.battle-arena {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 700px;
+}
+
+.opponent-area,
+.player-area {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 16px;
+  align-items: center;
+}
+
+.player-info {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+  color: $slate-800;
+}
+
+.life-points {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $danger-color;
+  margin-bottom: 8px;
+}
+
+.prize-count {
+  color: $slate-500;
+  font-size: 0.875rem;
+}
+
+.pokemon-zones {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.pokemon-zone {
+  aspect-ratio: 3/4;
+  background: $slate-100;
+  border: 2px dashed $slate-300;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+  transition: all 0.3s ease;
+
+  &.occupied {
+    background: linear-gradient(135deg, $warning-color, #f59e0b);
+    color: white;
+    border-style: solid;
+    border-color: #d97706;
+    font-weight: 600;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, $accent-color, $danger-color);
+    border-color: #b91c1c;
+  }
+}
+
+.deck-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-box {
+  background: $slate-50;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: $slate-500;
+  margin-bottom: 4px;
+}
+
+.info-count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $slate-800;
+}
+
+.battlefield {
+  background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.turn-info {
+  text-align: center;
+}
+
+.turn-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $slate-900;
+  margin-bottom: 12px;
+}
+
+.turn-actions {
+  display: flex;
+  gap: 12px;
+}
+
+// Collection styles
+.collection-view {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 24px;
+  height: 700px;
+}
+
+.collection-filters {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-title {
+  font-weight: 600;
+  color: $gray-700;
+  margin-bottom: 12px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.level-range {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: $slate-500;
+}
+
+.collection-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $slate-200;
+}
+
+.collection-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $slate-800;
+}
+
+.collection-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-label {
+  color: $slate-500;
+  font-weight: 500;
+}
+
+.control-select {
+  padding: 8px 12px;
+  border: 2px solid $slate-200;
+  border-radius: 6px;
+  background: white;
+}
+
+.card-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.collection-card {
+  background: white;
+  border: 2px solid $slate-200;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &.not-owned {
+    opacity: 0.6;
+    background: $gray-50;
+  }
+}
+
+.card-rarity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: $warning-color;
+
+  &.rarity-rare {
+    background: $primary-color;
+  }
+
+  &.rarity-super {
+    background: $secondary-color;
+  }
+
+  &.rarity-secret {
+    background: $accent-color;
+  }
+
+  &.rarity-ultra {
+    background: linear-gradient(90deg, $warning-color, $accent-color, $secondary-color);
+  }
+}
+
+.card-visual {
+  background: linear-gradient(135deg, $warning-color, #f59e0b);
+  color: white;
+  padding: 24px 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 12px 0;
+  font-size: 0.875rem;
+
+  &.unowned {
+    background: $gray-200;
+    color: $gray-400;
+  }
+}
+
+.card-name {
+  font-weight: 600;
+  color: $slate-800;
+  margin-bottom: 4px;
+  text-align: center;
+
+  &.unowned {
+    color: $gray-400;
+  }
+}
+
+.card-stats {
+  text-align: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+  margin-bottom: 8px;
+
+  &.unowned {
+    color: $gray-400;
+  }
+}
+
+.card-rarity-text {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+
+  &.common {
+    background: $gray-100;
+    color: $gray-500;
+  }
+
+  &.rare {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &.super {
+    background: #e9d5ff;
+    color: #7c3aed;
+  }
+
+  &.ultra {
+    background: $warning-color;
+    color: white;
+  }
+
+  &.secret {
+    background: #fecaca;
+    color: $danger-color;
+  }
+
+  &.unowned {
+    background: $gray-100;
+    color: $gray-400;
+  }
+}
+
+.card-count {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  &.owned {
+    color: $success-color;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagination-info {
+  color: $slate-500;
+  font-size: 0.875rem;
+}
+
+// Responsive design
+@media (max-width: $mobile) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .deck-builder {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .collection-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .opponent-area,
+  .player-area {
+    grid-template-columns: 1fr;
+  }
+  
+  .pokemon-zones {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
