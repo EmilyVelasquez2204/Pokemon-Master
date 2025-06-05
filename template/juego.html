@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pokemon Master</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showTemplate('dashboard')">Dashboard</button>
+            <button class="nav-tab" onclick="showTemplate('deck-builder')">Constructor Mazos</button>
+            <button class="nav-tab" onclick="showTemplate('battle')">Arena de Batalla</button>
+            <button class="nav-tab" onclick="showTemplate('collection')">Colección</button>
+        </nav>
+
+        <!-- Dashboard Principal -->
+        <div id="dashboard" class="template-viewer active">
+            <div class="dashboard">
+                <div class="main-content">
+                    <h1 class="main-title">Pokemon TCG Master System</h1>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-value">892</div>
+                            <div>Cartas Coleccionadas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">12</div>
+                            <div>Mazos Construidos</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">156</div>
+                            <div>Batallas Ganadas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value">2,840</div>
+                            <div>Puntos de Liga</div>
+                        </div>
+                    </div>
+
+                    <h3 class="section-title">Mazos Recientes</h3>
+                    <div class="recent-decks">
+                        <div class="deck-item">
+                            <h4 class="deck-name">Pikachu Lightning</h4>
+                            <p class="deck-modified">Última modificación: Hace 1 día</p>
+                            <div class="deck-tags">
+                                <span class="tag tag-blue">60 cartas</span>
+                                <span class="tag tag-green">Competitivo</span>
+                                <span class="tag tag-orange">Tipo Eléctrico</span>
+                            </div>
+                        </div>
+                        <div class="deck-item">
+                            <h4 class="deck-name">Charizard Fire Storm</h4>
+                            <p class="deck-modified">Última modificación: Hace 3 días</p>
+                            <div class="deck-tags">
+                                <span class="tag tag-blue">60 cartas</span>
+                                <span class="tag tag-purple">Casual</span>
+                                <span class="tag tag-red">Tipo Fuego</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <h3 class="section-title">Actividad Reciente</h3>
+                    <div class="activity-list">
+                        <div class="activity-item">
+                            <div class="activity-title">Batalla Ganada</div>
+                            <div class="activity-subtitle">vs. TrainerAsh - Hace 30 min</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-title">Nueva Carta</div>
+                            <div class="activity-subtitle">Charizard GX - Hace 2 horas</div>
+                        </div>
+                        <div class="activity-item">
+                            <div class="activity-title">Mazo Actualizado</div>
+                            <div class="activity-subtitle">Pikachu Lightning - Hace 1 día</div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">Nueva Batalla</button>
+                        <button class="btn btn-secondary">Ver Ranking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Constructor de Mazos -->
+        <div id="deck-builder" class="template-viewer">
+            <div class="deck-builder">
+                <div class="card-search">
+                    <h3 class="section-title">Búsqueda de Cartas</h3>
+                    <input type="text" class="search-input" placeholder="Buscar Pokemon...">
+                    
+                    <div class="search-filters">
+                        <select class="filter-select">
+                            <option>Todos los Tipos</option>
+                            <option>Pokemon</option>
+                            <option>Entrenador</option>
+                            <option>Energía</option>
+                        </select>
+                    </div>
+
+                    <div class="card-grid">
+                        <div class="card-item">
+                            <div class="card-image">Pikachu</div>
+                            <div class="card-stats">HP: 60 ⚡</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Charizard</div>
+                            <div class="card-stats">HP: 150 🔥</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Profesor Oak</div>
+                            <div class="card-stats">Entrenador</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Pocion</div>
+                            <div class="card-stats">Entrenador</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Blastoise</div>
+                            <div class="card-stats">HP: 140 💧</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Energía Fuego</div>
+                            <div class="card-stats">Energía Básica</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-area">
+                    <h2 class="deck-builder-title">Constructor de Mazos</h2>
+                    
+                    <div class="deck-zones">
+                        <div class="main-deck">
+                            <div class="deck-counter">Mazo Principal (0/60)</div>
+                            <div class="deck-placeholder">
+                                Arrastra cartas aquí para construir tu mazo
+                            </div>
+                        </div>
+                        
+                        <div class="bench">
+                            <div class="deck-counter">Banca de Pruebas (0/6)</div>
+                            <div class="deck-placeholder deck-placeholder--small">
+                                Pokemon de apoyo y estrategia
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">Guardar Mazo</button>
+                        <button class="btn btn-secondary">Probar vs IA</button>
+                        <button class="btn btn-secondary">Exportar Lista</button>
+                    </div>
+                </div>
+
+                <div class="deck-stats">
+                    <h3 class="section-title">Estadísticas del Mazo</h3>
+                    
+                    <div class="deck-composition">
+                        <div class="composition-item">
+                            <span>Pokemon</span>
+                            <span>0</span>
+                        </div>
+                        <div class="composition-item">
+                            <span>Entrenadores</span>
+                            <span>0</span>
+                        </div>
+                        <div class="composition-item">
+                            <span>Energías</span>
+                            <span>0</span>
+                        </div>
+                    </div>
+
+                    <h4 class="subsection-title">Curva de Energía</h4>
+                    <div class="energy-curve">
+                        <div class="energy-group">
+                            <div class="energy-label">1-2</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">3-4</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">5-6</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">7+</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                    </div>
+
+                    <h4 class="subsection-title">Tipos Detectados</h4>
+                    <div class="types">
+                        No hay tipos detectados
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Arena de Batalla -->
+        <div id="battle" class="template-viewer">
+            <div class="battle-arena">
+                <div class="opponent-area">
+                    <div class="player-info">
+                        <div class="player-name">Oponente</div>
+                        <div class="life-points">6 ⭐</div>
+                        <div class="prize-count">Cartas Premio: 6</div>
+                    </div>
+                    
+                    <div class="pokemon-zones">
+                        <div class="pokemon-zone">Banca 1</div>
+                        <div class="pokemon-zone occupied">Gengar</div>
+                        <div class="pokemon-zone">Banca 3</div>
+                        <div class="pokemon-zone occupied">Alakazam</div>
+                        <div class="pokemon-zone">Banca 5</div>
+                        <div class="pokemon-zone occupied active">Mewtwo</div>
+                    </div>
+                    
+                    <div class="deck-info">
+                        <div class="info-box">
+                            <div class="info-label">Descartadas</div>
+                            <div class="info-count">8</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label">Mazo</div>
+                            <div class="info-count">45</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battlefield">
+                    <div class="turn-info">
+                        <div class="turn-text">Tu Turno - Fase Principal</div>
+                        <div class="turn-actions">
+                            <button class="btn btn-primary">Atacar</button>
+                            <button class="btn btn-secondary">Usar Habilidad</button>
+                            <button class="btn btn-secondary">Finalizar Turno</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="player-area">
+                    <div class="player-info">
+                        <div class="player-name">Tú</div>
+                        <div class="life-points">4 ⭐</div>
+                        <div class="prize-count">Cartas Premio: 4</div>
+                    </div>
+                    
+                    <div class="pokemon-zones">
+                        <div class="pokemon-zone occupied active">Charizard</div>
+                        <div class="pokemon-zone occupied">Pikachu</div>
+                        <div class="pokemon-zone occupied">Blastoise</div>
+                        <div class="pokemon-zone">Banca 4</div>
+                        <div class="pokemon-zone">Banca 5</div>
+                        <div class="pokemon-zone">Banca 6</div>
+                    </div>
+                    
+                    <div class="deck-info">
+                        <div class="info-box">
+                            <div class="info-label">Descartadas</div>
+                            <div class="info-count">12</div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-label">Mazo</div>
+                            <div class="info-count">38</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Colección de Cartas -->
+        <div id="collection" class="template-viewer">
+            <div class="collection-view">
+                <div class="collection-filters">
+                    <h3 class="section-title">Filtros</h3>
+                    
+                    <div class="filter-group">
+                        <div class="filter-title">Tipo de Carta</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> Pokemon
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Entrenadores
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Energías
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Rareza</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> Común
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Poco Común
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Rara
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Holo Rara
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Tipo</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> ⚡ Eléctrico
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🔥 Fuego
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 💧 Agua
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🌱 Planta
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🌙 Psíquico
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 👊 Lucha
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Costo de Energía</div>
+                        <input type="range" min="0" max="5" class="level-range">
+                        <div class="range-labels">
+                            <span>0</span>
+                            <span>5+</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full">
+                        Aplicar Filtros
+                    </button>
+                </div>
+
+                <div class="collection-grid">
+                    <div class="collection-header">
+                        <h2 class="collection-title">Mi Colección Pokemon</h2>
+                        <div class="collection-controls">
+                            <span class="control-label">Mostrar:</span>
+                            <select class="control-select">
+                                <option>Todas las Cartas</option>
+                                <option>Solo Poseídas</option>
+                                <option>Favoritas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-collection-grid">
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-ultra"></div>
+                            <div class="card-visual">Charizard GX</div>
+                            <div class="card-name">Charizard GX</div>
+                            <div class="card-stats">HP: 250 🔥 Fuego</div>
+                            <div class="card-rarity-text ultra">Ultra Rara</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-super"></div>
+                            <div class="card-visual">Pikachu</div>
+                            <div class="card-name">Pikachu</div>
+                            <div class="card-stats">HP: 60 ⚡ Eléctrico</div>
+                            <div class="card-rarity-text super">Holo Rara</div>
+                            <div class="card-count owned">x3</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-secret"></div>
+                            <div class="card-visual">Mew</div>
+                            <div class="card-name">Mew</div>
+                            <div class="card-stats">HP: 50 🌙 Psíquico</div>
+                            <div class="card-rarity-text secret">Secreta</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card not-owned">
+                            <div class="card-visual unowned">Carta No Poseída</div>
+                            <div class="card-name unowned">Mewtwo</div>
+                            <div class="card-stats unowned">HP: 120 🌙 Psíquico</div>
+                            <div class="card-rarity-text unowned">Rara</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-rare"></div>
+                            <div class="card-visual">Blastoise</div>
+                            <div class="card-name">Blastoise</div>
+                            <div class="card-stats">HP: 140 💧 Agua</div>
+                            <div class="card-rarity-text rare">Rara</div>
+                            <div class="card-count owned">x2</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-visual">Profesor Oak</div>
+                            <div class="card-name">Profesor Oak</div>
+                            <div class="card-stats">Carta de Entrenador</div>
+                            <div class="card-rarity-text common">Común</div>
+                            <div class="card-count owned">x4</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-super"></div>
+                            <div class="card-visual">Venusaur</div>
+                            <div class="card-name">Venusaur</div>
+                            <div class="card-stats">HP: 140 🌱 Planta</div>
+                            <div class="card-rarity-text super">Holo Rara</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-visual">Energía Fuego</div>
+                            <div class="card-name">Energía Fuego</div>
+                            <div class="card-stats">Energía Básica 🔥</div>
+                            <div class="card-rarity-text common">Común</div>
+                            <div class="card-count owned">x8</div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <div class="pagination-controls">
+                            <button class="btn btn-secondary">← Anterior</button>
+                            <div class="pagination-info">
+                                <span>Página 1 de 12</span>
+                            </div>
+                            <button class="btn btn-secondary">Siguiente →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="../js/rutas.js"></script>
+</body>
+</html>
