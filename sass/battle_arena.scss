@@ -1,0 +1,126 @@
+@use 'paleta' as *;
+
+// Battle Arena styles
+.battle-arena {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 700px;
+}
+
+.opponent-area,
+.player-area {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px;
+  gap: 16px;
+  align-items: center;
+}
+
+.player-info {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.player-name {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 8px;
+  color: $slate-800;
+}
+
+.life-points {
+  font-size: 2rem;
+  font-weight: bold;
+  color: $danger-color;
+  margin-bottom: 8px;
+}
+
+.prize-count {
+  color: $slate-500;
+  font-size: 0.875rem;
+}
+
+.pokemon-zones {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.pokemon-zone {
+  aspect-ratio: 3/4;
+  background: $slate-100;
+  border: 2px dashed $slate-300;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+  transition: all 0.3s ease;
+
+  &.occupied {
+    background: linear-gradient(135deg, $warning-color, #f59e0b);
+    color: white;
+    border-style: solid;
+    border-color: #d97706;
+    font-weight: 600;
+  }
+
+  &.active {
+    background: linear-gradient(135deg, $accent-color, $danger-color);
+    border-color: #b91c1c;
+  }
+}
+
+.deck-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-box {
+  background: $slate-50;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-label {
+  font-size: 0.875rem;
+  color: $slate-500;
+  margin-bottom: 4px;
+}
+
+.info-count {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: $slate-800;
+}
+
+.battlefield {
+  background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+  padding: 24px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.turn-info {
+  text-align: center;
+}
+
+.turn-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $slate-900;
+  margin-bottom: 12px;
+}
+
+.turn-actions {
+  display: flex;
+  gap: 12px;
+}

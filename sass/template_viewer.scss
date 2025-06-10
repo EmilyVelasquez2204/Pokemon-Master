@@ -1,0 +1,14 @@
+@use 'paleta' as *;
+
+// Template viewer
+.template-viewer {
+  display: none;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  &.active {
+    display: block;
+  }
+}

@@ -1,0 +1,274 @@
+@use 'paleta' as *;
+// Collection styles
+.collection-view {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  gap: 24px;
+  height: 700px;
+} //lorem
+
+.collection-filters {
+  background: $slate-50;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+}
+
+.filter-group {
+  margin-bottom: 24px;
+}
+
+.filter-title {
+  font-weight: 600;
+  color: $gray-700;
+  margin-bottom: 12px;
+}
+
+.filter-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.level-range {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: $slate-500;
+}
+
+.collection-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.collection-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 2px solid $slate-200;
+}
+
+.collection-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: $slate-800;
+}
+
+.collection-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.control-label {
+  color: $slate-500;
+  font-weight: 500;
+}
+
+.control-select {
+  padding: 8px 12px;
+  border: 2px solid $slate-200;
+  border-radius: 6px;
+  background: white;
+}
+
+.card-collection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.collection-card {
+  background: white;
+  border: 2px solid $slate-200;
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &.not-owned {
+    opacity: 0.6;
+    background: $gray-50;
+  }
+}
+
+.card-rarity {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: $warning-color;
+
+  &.rarity-rare {
+    background: $primary-color;
+  }
+
+  &.rarity-super {
+    background: $secondary-color;
+  }
+
+  &.rarity-secret {
+    background: $accent-color;
+  }
+
+  &.rarity-ultra {
+    background: linear-gradient(90deg, $warning-color, $accent-color, $secondary-color);
+  }
+}
+
+.card-visual {
+  background: linear-gradient(135deg, $warning-color, #f59e0b);
+  color: white;
+  padding: 24px 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+  margin: 12px 0;
+  font-size: 0.875rem;
+
+  &.unowned {
+    background: $gray-200;
+    color: $gray-400;
+  }
+}
+
+.card-name {
+  font-weight: 600;
+  color: $slate-800;
+  margin-bottom: 4px;
+  text-align: center;
+
+  &.unowned {
+    color: $gray-400;
+  }
+}
+
+.card-stats {
+  text-align: center;
+  font-size: 0.875rem;
+  color: $slate-500;
+  margin-bottom: 8px;
+
+  &.unowned {
+    color: $gray-400;
+  }
+}
+
+.card-rarity-text {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+
+  &.common {
+    background: $gray-100;
+    color: $gray-500;
+  }
+
+  &.rare {
+    background: #dbeafe;
+    color: #1d4ed8;
+  }
+
+  &.super {
+    background: #e9d5ff;
+    color: #7c3aed;
+  }
+
+  &.ultra {
+    background: $warning-color;
+    color: white;
+  }
+
+  &.secret {
+    background: #fecaca;
+    color: $danger-color;
+  }
+
+  &.unowned {
+    background: $gray-100;
+    color: $gray-400;
+  }
+}
+
+.card-count {
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.875rem;
+
+  &.owned {
+    color: $success-color;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pagination-info {
+  color: $slate-500;
+  font-size: 0.875rem;
+}
+
+// Responsive design
+@media (max-width: $mobile) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .deck-builder {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .collection-view {
+    grid-template-columns: 1fr;
+  }
+  
+  .opponent-area,
+  .player-area {
+    grid-template-columns: 1fr;
+  }
+  
+  .pokemon-zones {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
