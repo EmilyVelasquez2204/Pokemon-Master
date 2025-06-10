@@ -1,0 +1,80 @@
+@use ' paleta' as *;
+// Breakpoints
+$mobile: 768px;
+
+// Mixins
+@mixin gradient-text($color1, $color2) {
+  background: linear-gradient(45deg, $color1, $color2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin card-hover {
+  &:hover {
+    border-color: $primary-color;
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-hover {
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  }
+}
+
+@mixin glassmorphism {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 50%, $accent-color 100%);
+  min-height: 100vh;
+  color: $gray-700;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+// Navigation
+.nav-tabs {
+  display: flex;
+  @include glassmorphism;
+  border-radius: 12px;
+  padding: 8px;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+
+.nav-tab {
+  flex: 1;
+  padding: 12px 20px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &.active {
+    background: white;
+    color: $gray-700;
+  }
+}
