@@ -1,0 +1,115 @@
+  <!-- Constructor de Mazos -->
+        <div id="deck-builder" class="template-viewer">
+            <div class="deck-builder">
+                <div class="card-search">
+                    <h3 class="section-title">Búsqueda de Cartas</h3>
+                    <input type="text" class="search-input" placeholder="Buscar Pokemon...">
+                    
+                    <div class="search-filters">
+                        <select class="filter-select">
+                            <option>Todos los Tipos</option>
+                            <option>Pokemon</option>
+                            <option>Entrenador</option>
+                            <option>Energía</option>
+                        </select>
+                    </div>
+
+                    <div class="card-grid">
+                        <div class="card-item">
+                            <div class="card-image">Pikachu</div>
+                            <div class="card-stats">HP: 60 ⚡</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Charizard</div>
+                            <div class="card-stats">HP: 150 🔥</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Profesor Oak</div>
+                            <div class="card-stats">Entrenador</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Pocion</div>
+                            <div class="card-stats">Entrenador</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Blastoise</div>
+                            <div class="card-stats">HP: 140 💧</div>
+                        </div>
+                        <div class="card-item">
+                            <div class="card-image">Energía Fuego</div>
+                            <div class="card-stats">Energía Básica</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="deck-area">
+                    <h2 class="deck-builder-title">Constructor de Mazos</h2>
+                    
+                    <div class="deck-zones">
+                        <div class="main-deck">
+                            <div class="deck-counter">Mazo Principal (0/60)</div>
+                            <div class="deck-placeholder">
+                                Arrastra cartas aquí para construir tu mazo
+                            </div>
+                        </div>
+                        
+                        <div class="bench">
+                            <div class="deck-counter">Banca de Pruebas (0/6)</div>
+                            <div class="deck-placeholder deck-placeholder--small">
+                                Pokemon de apoyo y estrategia
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button class="btn btn-primary">Guardar Mazo</button>
+                        <button class="btn btn-secondary">Probar vs IA</button>
+                        <button class="btn btn-secondary">Exportar Lista</button>
+                    </div>
+                </div>
+
+                <div class="deck-stats">
+                    <h3 class="section-title">Estadísticas del Mazo</h3>
+                    
+                    <div class="deck-composition">
+                        <div class="composition-item">
+                            <span>Pokemon</span>
+                            <span>0</span>
+                        </div>
+                        <div class="composition-item">
+                            <span>Entrenadores</span>
+                            <span>0</span>
+                        </div>
+                        <div class="composition-item">
+                            <span>Energías</span>
+                            <span>0</span>
+                        </div>
+                    </div>
+
+                    <h4 class="subsection-title">Curva de Energía</h4>
+                    <div class="energy-curve">
+                        <div class="energy-group">
+                            <div class="energy-label">1-2</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">3-4</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">5-6</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                        <div class="energy-group">
+                            <div class="energy-label">7+</div>
+                            <div class="energy-count">0</div>
+                        </div>
+                    </div>
+
+                    <h4 class="subsection-title">Tipos Detectados</h4>
+                    <div class="types">
+                        No hay tipos detectados
+                    </div>
+                </div>
+            </div>
+        </div>
