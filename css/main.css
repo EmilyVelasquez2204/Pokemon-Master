@@ -752,31 +752,4 @@ body {
   color: #64748b;
 }
 
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.btn.btn-primary {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-  color: white;
-}
-.btn.btn-primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
-}
-.btn.btn-secondary {
-  background: #f1f5f9;
-  color: #475569;
-}
-.btn.btn-secondary:hover {
-  background: #e2e8f0;
-}
-.btn.btn-full {
-  width: 100%;
-}
-
 /*# sourceMappingURL=main.css.map */
