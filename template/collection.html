@@ -1,0 +1,170 @@
+
+    
+        <!-- Colección de Cartas -->
+        <div id="collection" class="template-viewer">
+            <div class="collection-view">
+                <div class="collection-filters">
+                    <h3 class="section-title">Filtros</h3>
+                    
+                    <div class="filter-group">
+                        <div class="filter-title">Tipo de Carta</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> Pokemon
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Entrenadores
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Energías
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Rareza</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> Común
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Poco Común
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Rara
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> Holo Rara
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Tipo</div>
+                        <label class="filter-option">
+                            <input type="checkbox"> ⚡ Eléctrico
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🔥 Fuego
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 💧 Agua
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🌱 Planta
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 🌙 Psíquico
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox"> 👊 Lucha
+                        </label>
+                    </div>
+
+                    <div class="filter-group">
+                        <div class="filter-title">Costo de Energía</div>
+                        <input type="range" min="0" max="5" class="level-range">
+                        <div class="range-labels">
+                            <span>0</span>
+                            <span>5+</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-full">
+                        Aplicar Filtros
+                    </button>
+                </div>
+
+                <div class="collection-grid">
+                    <div class="collection-header">
+                        <h2 class="collection-title">Mi Colección Pokemon</h2>
+                        <div class="collection-controls">
+                            <span class="control-label">Mostrar:</span>
+                            <select class="control-select">
+                                <option>Todas las Cartas</option>
+                                <option>Solo Poseídas</option>
+                                <option>Favoritas</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="card-collection-grid">
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-ultra"></div>
+                            <div class="card-visual">Charizard GX</div>
+                            <div class="card-name">Charizard GX</div>
+                            <div class="card-stats">HP: 250 🔥 Fuego</div>
+                            <div class="card-rarity-text ultra">Ultra Rara</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-super"></div>
+                            <div class="card-visual">Pikachu</div>
+                            <div class="card-name">Pikachu</div>
+                            <div class="card-stats">HP: 60 ⚡ Eléctrico</div>
+                            <div class="card-rarity-text super">Holo Rara</div>
+                            <div class="card-count owned">x3</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-secret"></div>
+                            <div class="card-visual">Mew</div>
+                            <div class="card-name">Mew</div>
+                            <div class="card-stats">HP: 50 🌙 Psíquico</div>
+                            <div class="card-rarity-text secret">Secreta</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card not-owned">
+                            <div class="card-visual unowned">Carta No Poseída</div>
+                            <div class="card-name unowned">Mewtwo</div>
+                            <div class="card-stats unowned">HP: 120 🌙 Psíquico</div>
+                            <div class="card-rarity-text unowned">Rara</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-rare"></div>
+                            <div class="card-visual">Blastoise</div>
+                            <div class="card-name">Blastoise</div>
+                            <div class="card-stats">HP: 140 💧 Agua</div>
+                            <div class="card-rarity-text rare">Rara</div>
+                            <div class="card-count owned">x2</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-visual">Profesor Oak</div>
+                            <div class="card-name">Profesor Oak</div>
+                            <div class="card-stats">Carta de Entrenador</div>
+                            <div class="card-rarity-text common">Común</div>
+                            <div class="card-count owned">x4</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-rarity rarity-super"></div>
+                            <div class="card-visual">Venusaur</div>
+                            <div class="card-name">Venusaur</div>
+                            <div class="card-stats">HP: 140 🌱 Planta</div>
+                            <div class="card-rarity-text super">Holo Rara</div>
+                            <div class="card-count owned">x1</div>
+                        </div>
+
+                        <div class="collection-card">
+                            <div class="card-visual">Energía Fuego</div>
+                            <div class="card-name">Energía Fuego</div>
+                            <div class="card-stats">Energía Básica 🔥</div>
+                            <div class="card-rarity-text common">Común</div>
+                            <div class="card-count owned">x8</div>
+                        </div>
+                    </div>
+
+                    <div class="pagination">
+                        <div class="pagination-controls">
+                            <button class="btn btn-secondary">← Anterior</button>
+                            <div class="pagination-info">
+                                <span>Página 1 de 12</span>
+                            </div>
+                            <button class="btn btn-secondary">Siguiente →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

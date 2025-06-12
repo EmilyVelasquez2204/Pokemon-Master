@@ -1,6 +1,7 @@
-@use 'paleta' as *;
+@use 'pallette' as *;
 @use 'battle_arena';
 @use 'collection_styles';
+@use 'styles';
 
 
 
@@ -152,34 +153,6 @@
   gap: 12px;
 }
 
-// Buttons
-.btn {
-  padding: 12px 24px;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-
-  &.btn-primary {
-    background: linear-gradient(135deg, $primary-color, #1d4ed8);
-    color: white;
-    @include button-hover;
-  }
-
-  &.btn-secondary {
-    background: $slate-100;
-    color: $slate-600;
-
-    &:hover {
-      background: $slate-200;
-    }
-  }
-
-  &.btn-full {
-    width: 100%;
-  }
-}
 
 // Deck Builder styles
 .deck-builder {
