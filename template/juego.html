@@ -5,41 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pokemon Master</title>
     <link rel="stylesheet" href="../css/main.css">
-    
 </head>
 <body>
-    <div class="container">
-        <nav class="nav-tabs">
-            <button class="nav-tab active" onclick="showTemplate('dashboard')">Dashboard</button>
-            <button class="nav-tab" onclick="showTemplate('deck-builder')">Constructor Mazos</button>
-            <button class="nav-tab" onclick="showTemplate('battle')">Arena de Batalla</button>
-            <button class="nav-tab" onclick="showTemplate('collection')">Colección</button>
-        </nav>
+   <div class="container">
+    <nav class="nav-tabs">
+        <button class="nav-tab active" data-view="dashboard" onclick="showTemplate('dashboard')">Dashboard</button>
+        <button class="nav-tab" data-view="deck_builder" onclick="showTemplate('deck_builder')">Constructor Mazos</button>
+        <button class="nav-tab" data-view="battle_arena" onclick="showTemplate('battle_arena')">Arena de Batalla</button>
+        <button class="nav-tab" data-view="collection" onclick="showTemplate('collection')">Colección</button>
+    </nav>        
 
-                  
+    <!-- Contenedor para mostrar el contenido dinámicamente -->
+    <div id="template-viewer"></div>
+</div>
 
-       
-
-        <!-- Colección de Cartas -->
-       
-          
-              <!--Script para poder ver mi navbar en otras pagina-->
-           
-    <div id="dashboard"></div>
-    
-    <script>
-        fetch('dashboard.html')
-        .then(res => res.text())
-        .then(data => {
-            document.getElementById('dashboard').innerHTML = data;
-        });
-        
-    </script>
-    <!--Fin del Script-->
-           
-    </div>
-   
-  
 <script src="../js/rutas.js"></script>
+<script>
+    function showTemplate(view) {
+        // Cambia la clase activa en los botones
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.classList.remove('active');
+            if (tab.getAttribute('data-view') === view) {
+                tab.classList.add('active');
+            }
+        });
+
+        // Carga la vista correspondiente
+        fetch(`${view}.html`)
+            .then(res => {
+                if (!res.ok) throw new Error(`No se encontró ${view}.html`);
+                return res.text();
+            })
+            .then(data => {
+                document.getElementById('template-viewer').innerHTML = data;
+            })
+            .catch(err => {
+                document.getElementById('template-viewer').innerHTML = '<p style="color:red;">Error al cargar la vista.</p>';
+                console.error(err);
+            });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        showTemplate('dashboard');
+    });
+</script>
 </body>
 </html>
