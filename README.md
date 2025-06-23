@@ -46,5 +46,5 @@ Para Jugadores
 
 - Api consumida desde Pokemón TCG
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpokeflip.com%2Fes%2Fblogs%2Fnoticias%2Fcomo-jugar-al-tcg-de-pokemon-en-2021-un-tutorial-para-principiantes&psig=AOvVaw1Oj3fk60VqNFSnD_JYci0h&ust=1750808036356000&source=images&opi=89978449" alt="Pokémon TCG Logo">
+<img src="/template/img/PokemonTCG.webp" alt="Pokémon TCG Logo">
 
