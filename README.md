@@ -6,31 +6,31 @@ Una aplicación web interactiva completa que simula batallas de cartas Pokémon 
 🎮 Guía de Uso
 Para Jugadores
 
-Registro e Inicio de Sesión
+1.Registro e Inicio de Sesión
 
-Crear cuenta con email/username
-Verificación opcional por email
-
-
-Explorar Colección
-
-Navegar por todos los Pokémon disponibles
-Usar filtros avanzados para encontrar cartas específicas
-Marcar favoritos para acceso rápido
+- Crear cuenta con email/username
+- Verificación opcional por email
 
 
-Construir Mazos
+2.Explorar Colección
 
-Usar el constructor drag-and-drop
-Validar automáticamente las reglas del TCG
-Guardar múltiples mazos con nombres personalizados
+- Navegar por todos los Pokémon disponibles
+- Usar filtros avanzados para encontrar cartas específicas
+- Marcar favoritos para acceso rápido
 
 
-Participar en Batallas
+3.Construir Mazos
 
-Elegir entre PvE, PvP o modo Trío
-Seguir las fases del turno automáticamente
-Ver estadísticas detalladas post-batalla
+- Usar el constructor drag-and-drop
+- Validar automáticamente las reglas del TCG
+- Guardar múltiples mazos con nombres personalizados
+
+
+4.Participar en Batallas
+
+- Elegir entre PvE, PvP o modo Trío
+- Seguir las fases del turno automáticamente
+- Ver estadísticas detalladas post-batalla
 
 # Tecnologia utilizada
 - Html
@@ -47,5 +47,5 @@ Ver estadísticas detalladas post-batalla
 
 - Api consumida desde Pokemón TCG
 
-<img src="https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data/master/images/logo.png" alt="Pokémon TCG Logo">
+<img src="https://raw.githubusercontent.com/PokemonTCG/pokemon-tcg-data" alt="Pokémon TCG Logo">
 
